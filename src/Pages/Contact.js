@@ -1,6 +1,5 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { useState } from "react";
-import NavBar from '../Components/NavBar'
 
 
 const ContactPage = () => {
@@ -10,9 +9,10 @@ const ContactPage = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
 
+    const [signupList, handleAddSignup] = useOutletContext();
+
     return (
         <div>
-            <NavBar />
             <h1>Contact Page</h1>
 
             <label>First Name:</label>
@@ -31,7 +31,7 @@ const ContactPage = () => {
             }}></input>
 
             <button onClick={() =>{
-                navigate("/")
+                handleAddSignup(firstName,lastName,email)
             }}>Submit</button>
         </div>
     )

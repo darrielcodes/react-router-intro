@@ -9,21 +9,39 @@ import {
 import HomePage from './Pages/Home';
 import AboutPage from './Pages/About';
 import ContactPage from './Pages/Contact';
-
+import SignupsPage from "./Pages/SignupsPage";
+import SignupCard from "./Components/SignupCard";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: "/about",
+        element: <AboutPage />
+      },
+      {
+        path: "/contact",
+        element: <ContactPage/>
+      },
+      {
+        path: "/signups",
+        element: <SignupsPage />,
+        children: [
+          {
+            path: "/signups/:email",
+            element: <SignupCard />
+          }
+        ]
+      }
+    ]
   },
-  {
-    path: "/about",
-    element: <AboutPage />
-  },
-  {
-    path: "/contact",
-    element: <ContactPage/>
-  }
+  
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
