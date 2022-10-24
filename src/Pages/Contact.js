@@ -31,7 +31,10 @@ const ContactPage = () => {
             }}></input>
 
             <button onClick={() =>{
-                handleAddSignup(firstName,lastName,email)
+                handleAddSignup(firstName,lastName,email);
+                setFirstName("");
+                setLastName("");
+                setEmail("")
             }}>Submit</button>
         </div>
     )

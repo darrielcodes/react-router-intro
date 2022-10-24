@@ -4,8 +4,9 @@ const SignupCard = () => {
 
     const params = useParams();
     const [signupList] = useOutletContext();
-    const foundSignup = signupList.find((email) => {
-        return params.email
+    const foundSignup = signupList.find((signup) => {
+        if (signup.email === params.email)
+        return true
     });
 
     return (
